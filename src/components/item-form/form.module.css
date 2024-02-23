@@ -1,0 +1,62 @@
+.form_container {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.form_group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+
+  font-size: 14px;
+  font-weight: 500;
+  font-family: "Poppins";
+  padding-bottom: 4px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+button {
+  background-color: #dae952;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Poppins";
+}
+
+button:hover {
+  background-color: #dae952;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  font-family: "Poppins";
+}
+
+.submitted_data {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 20px;
+}
+
+.submitted_data h2 {
+  margin-top: 0;
+}
