@@ -1,6 +1,7 @@
 .form_container {
   max-width: 650px;
   margin: 0 auto;
+  padding: 24px;
 }
 
 .form_group {

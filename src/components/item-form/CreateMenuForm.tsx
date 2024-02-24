@@ -3,7 +3,11 @@ import * as Yup from "yup";
 import styles from "./form.module.css";
 import commonStyles from "../../index.module.css";
 import { useAppDispatch } from "../../hooks/storeHooks";
-import { addDataThunk, editDataThunk } from "../../store/items/itemThunk";
+import {
+  addDataThunk,
+  editDataThunk,
+  getDataThunk,
+} from "../../store/items/itemThunk";
 import { MenuItem } from "../../types/CommonTypes";
 import { FC, useEffect } from "react";
 import { useNavigate } from "react-router";
@@ -39,6 +43,7 @@ const CreateMenuForm: FC<iItems> = ({ initialValues, isItemUpdate }) => {
         ? dispatch(editDataThunk(values))
         : dispatch(addDataThunk(values));
       formik.resetForm();
+      getDataThunk();
       navigate("/");
     },
   });
@@ -51,7 +56,7 @@ const CreateMenuForm: FC<iItems> = ({ initialValues, isItemUpdate }) => {
 
   return (
     <div className={styles.form_container}>
-      <h2>Create Menu</h2>
+      <h2>{isItemUpdate ? "Update item" : "Create new item"}</h2>
       <form onSubmit={formik.handleSubmit}>
         <div className={styles.form_group}>
           <label htmlFor="category">Category</label>
@@ -61,6 +66,7 @@ const CreateMenuForm: FC<iItems> = ({ initialValues, isItemUpdate }) => {
             name="category"
             onChange={formik.handleChange}
             value={formik.values.category}
+            placeholder="Enter category"
           />
           {formik.errors.category && formik.touched.category && (
             <div className={styles.error}>{formik.errors.category}</div>
@@ -75,6 +81,7 @@ const CreateMenuForm: FC<iItems> = ({ initialValues, isItemUpdate }) => {
             name="name"
             onChange={formik.handleChange}
             value={formik.values.name}
+            placeholder="Enter name"
           />
           {formik.errors.name && formik.touched.name && (
             <div className={styles.error}>{formik.errors.name}</div>
@@ -103,6 +110,7 @@ const CreateMenuForm: FC<iItems> = ({ initialValues, isItemUpdate }) => {
             name="price"
             onChange={formik.handleChange}
             value={formik.values.price}
+            placeholder="Enter price "
           />
           {formik.errors.price && formik.touched.price && (
             <div className={styles.error}>{formik.errors.price}</div>
@@ -117,6 +125,7 @@ const CreateMenuForm: FC<iItems> = ({ initialValues, isItemUpdate }) => {
             name="cost"
             onChange={formik.handleChange}
             value={formik.values.cost}
+            placeholder="Enter cost"
           />
           {formik.errors.cost && formik.touched.cost && (
             <div className={styles.error}>{formik.errors.cost}</div>
@@ -131,6 +140,7 @@ const CreateMenuForm: FC<iItems> = ({ initialValues, isItemUpdate }) => {
             name="stock"
             onChange={formik.handleChange}
             value={formik.values.stock}
+            placeholder="Enter stock"
           />
           {formik.errors.stock && formik.touched.stock && (
             <div className={styles.error}>{formik.errors.stock}</div>

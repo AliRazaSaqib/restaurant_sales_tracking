@@ -7,7 +7,7 @@ import {
   doc,
   updateDoc,
 } from "@firebase/firestore";
-import { firebaseDB } from "../../components/firebase-services/firebase";
+import { firebaseDB } from "../../firebase";
 import { MenuItem } from "../../types/CommonTypes";
 
 export const addDataThunk = createAsyncThunk(

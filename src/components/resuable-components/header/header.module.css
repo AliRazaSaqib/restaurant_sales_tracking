@@ -1,0 +1,8 @@
+.top_nav {
+  padding: 18px;
+  background-color: white;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  box-shadow: 0 3px 10px rgba(218, 233, 82, 0.2);
+}

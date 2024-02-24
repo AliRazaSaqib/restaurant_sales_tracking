@@ -1,0 +1,17 @@
+.layout {
+  display: flex;
+  justify-content: space-between;
+}
+
+.children {
+  max-width: calc(100% - 70px);
+  width: 100%;
+  background-color: #f1f1f1;
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  .children {
+    max-width: 100%;
+  }
+}

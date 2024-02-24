@@ -4,6 +4,7 @@ import { MenuItem, ROUTE_QUERY_PARAMS } from "../../types/CommonTypes";
 import { useEffect, useState } from "react";
 import { useAppSelector } from "../../hooks/storeHooks";
 import { initialValues } from "../../utils/commonUtils";
+import { Header } from "../resuable-components/header/Header";
 
 export const Form = () => {
   const location = useLocation();
@@ -22,7 +23,8 @@ export const Form = () => {
   }, [itemId]);
 
   return (
-    <div>
+    <div style={{ width: "100%" }}>
+      <Header />
       <CreateMenuForm
         initialValues={values !== undefined ? values : initialValues}
         isItemUpdate={itemId === null ? false : true}

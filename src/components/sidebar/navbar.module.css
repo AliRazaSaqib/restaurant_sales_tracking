@@ -1,0 +1,77 @@
+nav {
+  width: 70px;
+  height: 100%;
+  position: fixed;
+  background: white;
+  box-shadow: 0 3px 10px rgba(218, 233, 82, 0.2);
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  z-index: 1003;
+}
+
+nav:hover {
+  width: 170px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+nav ul li {
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+nav ul .menu_item {
+  display: block;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: white;
+  white-space: nowrap;
+}
+
+nav ul li:hover .menu_item {
+  display: block;
+}
+
+.hide_icon {
+  display: none;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+nav ul li:hover {
+  background: black;
+  display: block;
+}
+nav ul li:hover:before {
+  content: "";
+  border-color: transparent #eee transparent transparent;
+  right: 0;
+  border-width: 10px;
+  position: absolute;
+  border-style: solid;
+  top: 8px;
+}
+nav a:link,
+nav a:visited,
+nav a:active,
+nav a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+}

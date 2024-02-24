@@ -1,6 +1,6 @@
 .menu_container {
-  margin: 34px 0;
-  padding: 0 24px;
+  padding: 24px;
+  background-color: #f1f1f1;
 }
 
 .menu_container .button_link {
@@ -13,7 +13,7 @@
 }
 
 .menu_container button {
-  margin-bottom: 24px;
+  margin: 24px 0;
 }
 
 .card {
@@ -25,4 +25,8 @@
 .card_container {
   max-width: 400px;
   width: 100%;
+
+  box-shadow: 0 3px 10px rgba(218, 233, 82, 0.2);
+  background-color: white;
+  border-radius: 12px;
 }
