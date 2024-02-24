@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Item from "../menu-Item/Item";
 import commonStyles from "../../index.module.css";
 import styles from "./menu.module.css";
@@ -31,7 +31,7 @@ export const Menu = () => {
 
         <h2>Items list</h2>
         <div className={styles.card}>
-          {filteredItems.map((item: MenuItem, key: number) => (
+          {filteredItems.map((item: MenuItem, _) => (
             <div key={item.id} className={styles.card_container}>
               <Item item={item} />
             </div>
