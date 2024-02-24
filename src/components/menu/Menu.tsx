@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useAppSelector } from "../../hooks/storeHooks";
 import { Header } from "../resuable-components/header/Header";
 import SearchBar from "../resuable-components/Search-bar/SearchBar";
+import { NotFound } from "../resuable-components/404Page/NotFound";
 
 export const Menu = () => {
   const items = useAppSelector((state) => state.items.items);
@@ -38,6 +39,10 @@ export const Menu = () => {
           ))}
         </div>
       </div>
+
+      {items?.length === 0 && (
+        <NotFound label="Record not found. Click on the 'Add New' button to insert new items." />
+      )}
     </div>
   );
 };

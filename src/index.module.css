@@ -34,3 +34,7 @@ body {
   cursor: pointer;
   font-family: "Poppins";
 }
+
+.main_container {
+  height: 100%;
+}
