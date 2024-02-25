@@ -12,10 +12,9 @@ import { MenuItem } from "../../types/CommonTypes";
 import { FC, useEffect } from "react";
 import { useNavigate } from "react-router";
 
-interface iItems {
+type iItems = {
   initialValues: MenuItem;
-  isItemUpdate: boolean;
-}
+};
 
 const validationSchema = Yup.object().shape({
   category: Yup.string().required("Category is required"),
@@ -31,19 +30,24 @@ const validationSchema = Yup.object().shape({
     .min(0, "Stock must be greater than or equal to 0"),
 });
 
-const CreateMenuForm: FC<iItems> = ({ initialValues, isItemUpdate }) => {
+const CreateMenuForm: FC<iItems> = ({ initialValues }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const isItemUpdate = !!initialValues.id;
 
   const formik = useFormik({
     initialValues,
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      isItemUpdate
-        ? dispatch(editDataThunk(values))
-        : dispatch(addDataThunk(values));
-      formik.resetForm();
-      getDataThunk();
+    onSubmit: async (values) => {
+      if (isItemUpdate) {
+        await dispatch(editDataThunk(values));
+      } else {
+        await dispatch(addDataThunk(values));
+      }
+
+      await dispatch(getDataThunk());
+
       navigate("/");
     },
   });

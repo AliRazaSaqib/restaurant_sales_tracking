@@ -9,11 +9,11 @@ import { deleteDataThunk, getDataThunk } from "../../store/items/itemThunk";
 import { Modal } from "../resuable-components/modal/Modal";
 import { ConfermationModal } from "../resuable-components/modal/ConfermationModal";
 
-interface iMenuList {
+type MenuList = {
   item: MenuItem;
-}
+};
 
-const Item: FC<iMenuList> = ({ item }) => {
+const Item: FC<MenuList> = ({ item }) => {
   const [modal, setModal] = useState(false);
   const [confermationModal, setConfermationModal] = useState(false);
 
@@ -21,9 +21,9 @@ const Item: FC<iMenuList> = ({ item }) => {
   const dispatch = useAppDispatch();
   const { id, cost, name, category, stock, price, options } = item ?? {};
 
-  const handleDeleteItem = (id: string) => {
-    dispatch(deleteDataThunk(id));
-    dispatch(getDataThunk());
+  const handleDeleteItem = async (id: string) => {
+    await dispatch(deleteDataThunk(id));
+    await dispatch(getDataThunk());
   };
 
   const updateRoute = (id: string) => {

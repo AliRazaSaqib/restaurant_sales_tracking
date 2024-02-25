@@ -2,12 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 import { MenuItem } from "../../types/CommonTypes";
 import { getDataThunk } from "./itemThunk";
 
-export interface iUserStoreState {
+export type UserStoreState = {
   items: MenuItem[];
   isLoading: boolean;
-}
+};
 
-const initialState: iUserStoreState = {
+const initialState: UserStoreState = {
   items: [],
   isLoading: false,
 };

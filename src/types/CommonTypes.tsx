@@ -1,8 +1,8 @@
-export interface LayoutProps {
+export type LayoutProps = {
   children: any;
-}
+};
 
-export interface MenuItem {
+export type MenuItem = {
   category: string;
   name: string;
   options?: string;
@@ -10,7 +10,7 @@ export interface MenuItem {
   cost: number | string;
   stock: number | string;
   id?: string;
-}
+};
 
 export enum ROUTE_QUERY_PARAMS {
   ITEM_ID = "id",

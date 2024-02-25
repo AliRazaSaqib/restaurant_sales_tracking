@@ -3,7 +3,7 @@ import styles from "./modal.module.css";
 import { CloseButton } from "../buttons/CloseButton";
 import commonStyles from "../../../index.module.css";
 
-interface iModal {
+type UserModal = {
   isShow: boolean;
   setModal: (isShow: boolean) => void;
   name: string;
@@ -12,9 +12,9 @@ interface iModal {
   options: string | number | undefined;
   category: string;
   stock: string | number;
-}
+};
 
-export const Modal: FC<iModal> = ({
+export const Modal: FC<UserModal> = ({
   isShow,
   setModal,
   name,

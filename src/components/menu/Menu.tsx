@@ -4,13 +4,13 @@ import commonStyles from "../../index.module.css";
 import styles from "./menu.module.css";
 import { MenuItem } from "../../types/CommonTypes";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "../../hooks/storeHooks";
 import { Header } from "../resuable-components/header/Header";
 import SearchBar from "../resuable-components/Search-bar/SearchBar";
 import { NotFound } from "../resuable-components/404Page/NotFound";
+import { useItemList } from "../../hooks";
 
 export const Menu = () => {
-  const items = useAppSelector((state) => state.items.items);
+  const items = useItemList();
   const [filteredItems, setFilteredItems] = useState(items);
 
   const handleSearch = (searchTerm: string) => {
@@ -41,7 +41,7 @@ export const Menu = () => {
       </div>
 
       {items?.length === 0 && (
-        <NotFound label="Record not found. Click on the 'Add New' button to insert new items." />
+        <NotFound label="Record not found. Click on the 'Add new item' button to insert new items." />
       )}
     </div>
   );

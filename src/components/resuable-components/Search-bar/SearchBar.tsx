@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styles from "./search.module.css";
 
-interface Props {
+type Props = {
   onSearch: (searchTerm: string) => void;
-}
+};
 
 const SearchBar: React.FC<Props> = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState("");

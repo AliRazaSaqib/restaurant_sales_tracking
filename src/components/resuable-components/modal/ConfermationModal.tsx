@@ -3,16 +3,16 @@ import styles from "./modal.module.css";
 import { CloseButton } from "../buttons/CloseButton";
 import commonStyles from "../../../index.module.css";
 
-interface iModal {
+type UserModal = {
   isShow: boolean;
   setConfermationModal: (isShow: boolean) => void;
   label: string;
   firstButton: string;
   secondButton: string;
   onDeleteConfirmed?: () => void;
-}
+};
 
-export const ConfermationModal: FC<iModal> = ({
+export const ConfermationModal: FC<UserModal> = ({
   isShow,
   setConfermationModal,
   label,

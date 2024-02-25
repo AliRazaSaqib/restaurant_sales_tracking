@@ -1,33 +1,28 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import CreateMenuForm from "./CreateMenuForm";
-import { MenuItem, ROUTE_QUERY_PARAMS } from "../../types/CommonTypes";
-import { useEffect, useState } from "react";
-import { useAppSelector } from "../../hooks/storeHooks";
+import { ROUTE_QUERY_PARAMS } from "../../types/CommonTypes";
+import { useMemo } from "react";
 import { initialValues } from "../../utils/commonUtils";
 import { Header } from "../resuable-components/header/Header";
+import { useItemList } from "../../hooks";
 
 export const Form = () => {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const [values, setValues] = useState<MenuItem>();
-  const itemList = useAppSelector((state) => state.items.items);
+  const { search } = useLocation();
+  const itemList = useItemList();
 
-  const searchParams = new URLSearchParams(location.search);
+  const searchParams = new URLSearchParams(search);
   const itemId = searchParams.get(ROUTE_QUERY_PARAMS.ITEM_ID);
 
-  useEffect(() => {
-    const itemToEdit = itemList.find((item) => item.id === itemId);
-    setValues(itemToEdit);
-
-    itemList.length === 0 && itemId !== null && navigate("/");
-  }, [itemId]);
+  const values = useMemo(
+    () => itemList?.find(({ id }) => id === itemId),
+    [itemList, itemId]
+  );
 
   return (
     <div style={{ width: "100%" }}>
       <Header />
       <CreateMenuForm
         initialValues={values !== undefined ? values : initialValues}
-        isItemUpdate={itemId === null ? false : true}
       />
     </div>
   );
