@@ -1,13 +1,16 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "@firebase/firestore";
 
+// If we can create a React app using Vite, then access the environment file using import.meta.vite.
+
 const firebaseConfig = {
-  apiKey: "AIzaSyBzT9m_0xBgQOKYD_EnLiOi4WZ4GQ1jopc",
-  authDomain: "restaurant-sales-track.firebaseapp.com",
-  projectId: "restaurant-sales-track",
-  storageBucket: "restaurant-sales-track.appspot.com",
-  messagingSenderId: "882436388011",
-  appId: "1:882436388011:web:95ef172e616939543ff3ee",
+  apiKey: import.meta.env.VITE_REACT_APP_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_REACT_APP_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env
+    .VITE_REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_REACT_APP_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
