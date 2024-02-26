@@ -12,7 +12,7 @@ import { MenuItem } from "../../types/CommonTypes";
 import { FC, useEffect } from "react";
 import { useNavigate } from "react-router";
 
-type iItems = {
+type FormValues = {
   initialValues: MenuItem;
 };
 
@@ -30,7 +30,7 @@ const validationSchema = Yup.object().shape({
     .min(0, "Stock must be greater than or equal to 0"),
 });
 
-const CreateMenuForm: FC<iItems> = ({ initialValues }) => {
+const DataForm: FC<FormValues> = ({ initialValues }) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -159,4 +159,4 @@ const CreateMenuForm: FC<iItems> = ({ initialValues }) => {
   );
 };
 
-export default CreateMenuForm;
+export default DataForm;

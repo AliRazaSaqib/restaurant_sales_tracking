@@ -1,10 +1,12 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import styles from "./navbar.module.css";
-import dashboard_select from "../../assets/images/dashboard_icon_selected.png";
-import unselect_dashboard_select from "../../assets/images/dashboard_icon_un_selected.png";
-import add_record_unselect from "../../assets/images/add_record_un_selected.png";
-import add_record_select from "../../assets/images/add_record_selected.png";
+import {
+  add_record_select,
+  add_record_unselect,
+  dashboard_select,
+  unselect_dashboard_select,
+} from "../../assets";
 
 export default function SideBar() {
   const [dashboardHovered, setDashboardHovered] = useState(false);

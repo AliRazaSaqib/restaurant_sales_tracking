@@ -4,6 +4,17 @@
   padding: 24px;
 }
 
+.form_container h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  padding: 0;
+}
+
+.form {
+  width: 100%;
+  background: #f1f1f1;
+}
+
 .form_group {
   margin-bottom: 20px;
 }
